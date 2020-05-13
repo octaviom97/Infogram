@@ -39,6 +39,24 @@
 
 footer {
   margin-top: 2rem;
+  background-color: crimson;
+  font-family: Helvetica;
+  text-align: center;
+  height: 100px;
+}
+
+nav{
+
+    margin-top: 2rem;
+    background-color: #fa9191;
+    font-family: Helvetica;
+    text-align: center;
+    height: 100px;
+}
+
+#nav-link{
+  font-family: fantasy;
+  font-size: 20px;
 }
 
 .is-256x256{
