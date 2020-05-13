@@ -1,0 +1,62 @@
+{% extends 'base.html' %}  <!-- Extendemos de nuestro archivo base.html -->
+{% load static %}  <!-- Volvemos a cargar el tag static ya que en este archivo igual accederemos a estaticos -->
+<!-- Iniciamos el contenido del bloque que asignamos en nuestro template base.html por el cual sera intercambiado al momento del render -->
+{% block content %}
+
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-large" type="search"/>
+              <span class="icon is-medium is-left">
+                <i class="fa fa-search"></i>
+              </span>
+              <span class="icon is-medium is-right">
+                <i class="fa fa-empire"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="box cta">
+  <div class="columns is-mobile is-centered">
+    <div class="field is-grouped is-grouped-multiline">
+      <div class="control"><span class="tag is-link is-large">Link</span></div>
+      <div class="control"><span class="tag is-success is-large">Success</span></div>
+      <div class="control"><span class="tag is-black is-large">Black</span></div>
+      <div class="control"><span class="tag is-warning is-large">Warning</span></div>
+      <div class="control"><span class="tag is-danger is-large">Danger</span></div>
+      <div class="control"><span class="tag is-info is-large">Info</span></div>
+    </div>
+  </div>
+</div>
+<section class="container">
+  <div class="level-item">
+    <h1 class="title is-4">Inicia sesión o registrate para ver tu tablero!</h1>
+  </div>
+    <br>
+  <div class="level-item">
+     <button class="button is-primary is-rounded is-fullwidth">Inicia Sesión</button>
+  </div>
+    <br>
+  <div class="level-item">
+    <button href= "/registro?id={{ modelo.id }}" class="button is-link is-rounded is-fullwidth">Registrate</button>
+  </div>
+  <br>
+  <div class="level-item">
+    <figure class="image is-256x256">
+      <img src="{% static 'images/chat.png' %}">
+    </figure>
+  </div>
+</section>
+<div class="columns is-mobile is-centered">
+  <div class="column is-half is-narrow"></div>
+</div>
+{% endblock content %}
+<!-- Fin de nuestro contenido de bloque Django continua rendereando a partir del fin de bloque de base.html-->
