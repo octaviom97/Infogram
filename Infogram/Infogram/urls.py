@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from dashboard.views import BaseView
+from dashboard.views import IndexView, LoginView, RegisterView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', BaseView.as_view())
+    path('', IndexView.as_view(), name='index'),
+    path('login_infogram', LoginView.as_view(), name='login'),
+    path('registro_infogram', RegisterView.as_view(), name='registro')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,79 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="shortcut icon" href="static/images/infogram.png">
-  <link rel="stylesheet" href="static/css/styles.css">
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="#!" class="brand-logo"><img src="static/images/infogram.png" alt=""> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Iniciar Sesión <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Registrarse</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-  <section class="hero is-info">
-    <div class="hero-body">
-      <div class="container">
-        <div class="card">
-          <div class="card-content">
-            <div class="content">
-              <div class="control has-icons-left has-icons-right">
-                <input class="input is-large" type="search"/>
-                <span class="icon is-medium is-left">
-                  <i class="fa fa-search"></i>
-                </span>
-                <span class="icon is-medium is-right">
-                  <i class="fa fa-empire"></i>
-                </span>
+{% extends 'base.html' %}
+{#Se define el contenido que aparecerá en 'base.html'#}
+{% block content %}
+        <div class="container mt-3">
+          <div class="row">
+            {% for foo in pubs %}
+            <div class="col-6 ">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">{{ foo.nombre_usuario }}</h5>
+                  <img src="{{ foo.imagen.url }}" class="card-img-top" width="10px" height="600px" alt="...">
+                  <p class="card-text">{{ foo.descripcion }}</p>
+                  <p class="card-text">{{ foo.fecha_publicacion }}</p>
+                  <a class="btn" onclick="document.getElementById('{{ foo.id }}').src='static/images/icons8-heart-50 (1).png'">
+                      <img id="{{ foo.id }}" src="static/images/icons8-heart-50.png">
+                  </a>
+                </div>
               </div>
             </div>
+          {% endfor %}
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  
-  <section class="container">
-    <div class="level-item">
-      <h1 class="title is-4">Inicia sesión o registrate en Infogram!</h1>
-    </div>
-      <br>
-    <div class="level-item">
-       <button class="button is-primary is-rounded is-fullwidth">Inicia Sesión</button>
-    </div>
-      <br>
-    <div class="level-item">
-      <button href= " " class="button is-link is-rounded is-fullwidth">Registrate</button>
-    </div>
-    <br>
-    <div class="level-item">
-      <figure class="image is-256x256">
-        <img src="">
-      </figure>
-    </div>
-  </section>
-  <div class="columns is-mobile is-centered">
-    <div class="column is-half is-narrow"></div>
-  </div>
-</body>
-</html>
-
+{% endblock %}
