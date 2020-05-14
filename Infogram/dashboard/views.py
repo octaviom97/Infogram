@@ -3,6 +3,7 @@ from django.views import View
 from .models import PublicacionBien
 from .forms import PublicacionForm
 
+
 class IndexView(View):
     def get(self, request):
         template_name = 'index.html'
@@ -35,12 +36,5 @@ class PublicacionCreate(View):
 class NotificacionCreate(View):
     template_name = 'notification.html'
 
-    def post(self,request):
-        data = request.POST
-        form= NotificacionForm(data, request.FILES)
-        if form.is_valid():
-            form.save()
-            return render(request, 'notification.html', context)
-        else:
-            return redirect('perfil')
+
 
