@@ -2,53 +2,49 @@
 {#Se define el contenido que aparecerá en 'base.html'#}
 {% block content %}
 <div class="container mt-2 mb-2">
-      <form>
+      <form action="{% url 'registro' %}" method="post">
+          {% csrf_token %}
         <div class="form-row">
-          <div class="form-group col-md-12">
-            <label for="inputEmail4">Usuario o email</label>
-            <input type="email" class="form-control" id="inputEmail4">
-          </div>
-          <form class="form-inline">
-            <div class="form-group col-md-6">
-              <label for="inputPassword6">Contraseña</label>
-              <input type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
-              <small id="passwordHelpInline" class="text-muted">
-                Must be 8-20 characters long.
-              </small>
-            </div>
-            <form class="form-inline">
-                <div class="form-group col-md-6">
-                  <label for="inputPassword6">Confirma Contraseña</label>
-                  <input type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
-                  <small id="passwordHelpInline" class="text-muted">
-                  </small>
-                </div>
-              </form>
-          </form>
-        </div>
-     
-        <div class="form-row">
+        <div class="form-group col-md-12">
           <div class="form-group col-md-6">
-            <label for="inputCity">Ciudad</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputState">Estado</label>
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
+            <label for="inputEmail4">Usuario</label>
+              {{ form.username }}
+              {{ form.username.errors }}
+{#            <input type="email" class="form-control" id="inputEmail4">#}
           </div>
         </div>
-        <div class="form-group">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
+            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+              {{ form.email }}
+              {{ form.email.errors }}
+{#            <input type="email" class="form-control" id="inputEmail4">#}
           </div>
+          </div>
+            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
+              <label for="inputPassword6">Contraseña:</label>
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+{#              <input type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">#}
+{#              <small id="passwordHelpInline" class="text-muted">#}
+{#                Must be 8-20 characters long.#}
+{#              </small>#}
+            </div>
+            </div>
+                <div class="form-group col-md-12">
+                <div class="form-group col-md-6">
+                  <label for="inputPassword6">Confirma Contraseña:</label>
+                    {{ form.password2 }}
+                    {{ form.password2.errors }}
+{#                  <input type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">#}
+                </div>
+                </div>
         </div>
-        <button type="submit" class="btn btn-primary">Registrate!</button>
+          <input type="submit" class="btn btn-primary" value="Registrate!">
+            <div class="mt-2">
+              <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión</a>
+            </div>
       </form>
 </div>
 {% endblock %}

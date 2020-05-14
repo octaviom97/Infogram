@@ -3,7 +3,7 @@
 <head>
 	<title>Infogram</title>
 {#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">#}
-{#    <link rel="stylesheet" href="static/css/styles.css">#}
+      <link rel="stylesheet" href="static/css/styles.css">
       <link rel="stylesheet" href="static/css/bootstrap.min.css">
       <link rel="shortcut icon" href="static/images/infogram.png">
 
@@ -17,12 +17,25 @@
     <ul class="navbar-nav mr-auto">
     </ul>
     <ul class="navbar-nav my-2 my-lg-0">
+        {% if request.user.is_authenticated %}
+    <li class="nav-item active">
+        <a class="nav-link">{{ request.user }}</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="#">Mis publicaciones</a>
+    </li>
      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión <span class="sr-only"></span></a>
+        <a class="nav-link" href="{% url 'logout' %}">Ana Lakes no es cool jeje (Cerrar Sesión)<span class="sr-only"></span></a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'registro' %}">Registrarse</a>
-      </li>
+{#        {% else %}#}
+{#        <li class="nav-item active">#}
+{#        <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión<span class="sr-only"></span></a>#}
+{#      </li>#}
+{#        <li class="nav-item active">#}
+{#        <a class="nav-link" href="{% url 'registro' %}">Registro<span class="sr-only"></span></a>#}
+{#      </li>#}
+        {% endif %}
+
     </ul>
     </ul>
   </div>

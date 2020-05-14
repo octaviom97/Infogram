@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from dashboard.views import IndexView, LoginView, RegisterView
+from dashboard.views import IndexView
+from usuarios.views import LoginView, RegisterView, LogoutView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name='index'),
-    path('login_infogram', LoginView.as_view(), name='login'),
-    path('registro_infogram', RegisterView.as_view(), name='registro')
+    path('inicio', IndexView.as_view(), name='index'),
+    path('', LoginView.as_view(), name='login'),
+    path('registro_infogram', RegisterView.as_view(), name='registro'),
+    path('logout_infogram', LogoutView.as_view(), name='logout'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -8,12 +8,4 @@ class IndexView(View):
         contexto = dict(pubs=Publicacion.objects.all())
         return render(request, template_name, contexto)
 
-class LoginView(View):
-    def get(self, request):
-        template_name = 'login.html'
-        return render(request, template_name)
 
-class RegisterView(View):
-    def get(self, request):
-        template_name = 'register.html'
-        return render(request, template_name)
