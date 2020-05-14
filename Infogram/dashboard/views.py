@@ -32,4 +32,15 @@ class PublicacionCreate(View):
         else:
             return redirect('pub-crear')
 
+class NotificacionCreate(View):
+    template_name = 'notification.html'
+
+    def post(self,request):
+        data = request.POST
+        form= NotificacionForm(data, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request, 'notification.html', context)
+        else:
+            return redirect('perfil')
 

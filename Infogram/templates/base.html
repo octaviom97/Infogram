@@ -13,7 +13,7 @@
 <nav class="navbar navbar-expand-lg ">
   <a {% if request.user.is_authenticated %} href="{% url 'index' %}" {% endif %} class="brand-logo"><img src="static/images/infogram.png" alt=""> </a>
     {% if request.user.is_authenticated %}
-        <a class="nav-link">Bienvenido {{ request.user }}!</a>
+        <a class="nav-link text-white">Bienvenido {{ request.user }}!</a>
     {% endif %}
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -22,13 +22,13 @@
         {% if request.user.is_authenticated %}
 
     <li class="nav-item active">
-        <a class="nav-link" href="{% url 'perfil' %}">Mi Perfil</a>
+        <a class="nav-link text-white" href="{% url 'perfil' %}">Mi Perfil</a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="{% url 'pub-crear' %}">Publicar</a>
+        <a class="nav-link text-white " href="{% url 'pub-crear' %}">Publicar</a>
     </li>
      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión<span class="sr-only"></span></a>
+        <a class="nav-link text-white " href="{% url 'logout' %}">Cerrar Sesión<span class="sr-only"></span></a>
       </li>
 {#        {% else %}#}
 {#        <li class="nav-item active">#}
@@ -43,17 +43,34 @@
     </ul>
   </div>
 </nav>
-
+{% include 'notification.html'%}
 {# Aquí se cargan los demás html's #}
 {% block content %} {% endblock %}
 
-<footer class="page-footer">
+<footer class="page-footer bg-dark">
          <div class="footer-copyright">
            <div class="container">
                <h5 class="text-white">Ana Paola Lakes Parra y Octavio Martínez Osorio</h5>
                <h6 class="text-white">© 2020 Copyright Text</h6>
            </div>
          </div>
+         <div class="col l4 offset-l2 s12">
+          <h5 class="text-white">Links para nuestras redes sociales</h5>
+          <div class="col-12">
+              <li><a class="text-white text-lighten-3" href="https://www.facebook.com/anapao.lagunas/">Facebook Ana Lakes</a>
+              <img src="static/images/facebook.png" alt="" width="20px" height="20px"></li>
+        
+             </li>
+              <li><a class="text-white text-lighten-3" href="https://www.instagram.com/anapaolp">Instagram Ana Lakes</a>
+              <img src="static/images/instagram.png" alt="" width="20px" height="20px">
+              </li>
+              <li><a class="text-white text-lighten-3" href="https://www.facebook.com/octavio.martinez.9212301">Facebook Octavio Martinez</a>
+                <img src="static/images/facebook.png" alt="" width="20px" height="20px"></li>
+               </li>
+                <li><a class="text-white text-lighten-3" href="https://www.instagram.com/octaviiomtz">Instagram Octavio Martinez</a>
+                <img src="static/images/instagram.png" alt="" width="20px" height="20px">
+                </li>
+          </div>
 </footer>
 
 
