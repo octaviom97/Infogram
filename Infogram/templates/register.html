@@ -1,6 +1,34 @@
 {% extends 'base.html' %}
 {#Se define el contenido que aparecerá en 'base.html'#}
 {% block content %}
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-4 ">
+      <div class="card mb-3">
+        <div class="card-body">
+          <img src="static/images/carrusel1.jpg" width ="300px" height="300px" alt="">
+          <h5 class="text-center">Conoce nuevos lugares!</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 ">
+      <div class="card mb-3">
+        <div class="card-body">
+          <img src="static/images/carrusel4.jpg" width ="300px" height="300px"alt="">
+          <h5 class="text-center">Haz nuevos amigos!</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 ">
+      <div class="card mb-3">
+        <div class="card-body">
+          <img src="static/images/carrusel2.jpg" width ="300px" height="300px" alt="">
+          <h5 class="text-center">Comparte las mejores fotografías!</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container mt-2 mb-2">
       <form action="{% url 'registro' %}" method="post">
           {% csrf_token %}

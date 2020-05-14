@@ -3,6 +3,8 @@ from django.views import View
 from django.contrib.auth import login, authenticate, logout
 from .forms import RegisterForm, LoginForm
 
+from django.contrib import messages
+
 class LoginView(View):
     template_name = 'login.html'
 
@@ -23,6 +25,7 @@ class LoginView(View):
             if user is not None:
                 login(request, user)
                 return redirect('index')
+                messages.error(request, 'Los datos ingresados no son los correctos')
         return render(request, self.template_name, dict(form=form))
 
 
@@ -39,8 +42,10 @@ class RegisterView(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
+            messages.success(request, 'Registro exitoso')
             return redirect('index')
         else:
+            messages.error(request, 'Algo salió mal con tu registro, intentalo otra vez')
             return render(request, self.template_name, dict(form=form))
 
 class LogoutView(View):
