@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from .models import PublicacionBien
 from .forms import PublicacionForm
+from django.contrib import messages
 
 
 class IndexView(View):
@@ -29,8 +30,10 @@ class PublicacionCreate(View):
         form = PublicacionForm(data, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Hiciste una publicación')
             return redirect('perfil')
         else:
+            messages.error(request, 'No se guardó la publicación')
             return redirect('pub-crear')
 
 class NotificacionCreate(View):

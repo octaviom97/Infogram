@@ -43,38 +43,49 @@
     </ul>
   </div>
 </nav>
-{% include 'notification.html'%}
+{#{% include 'notification.html'%}#}
 {# Aquí se cargan los demás html's #}
 {% block content %} {% endblock %}
 
-<footer class="page-footer bg-dark">
-         <div class="footer-copyright">
-           <div class="container">
-               <h5 class="text-white">Ana Paola Lakes Parra y Octavio Martínez Osorio</h5>
-               <h6 class="text-white">© 2020 Copyright Text</h6>
-           </div>
-         </div>
-         <div class="col l4 offset-l2 s12">
-          <h5 class="text-white">Links para nuestras redes sociales</h5>
-          <div class="col-12">
-              <li><a class="text-white text-lighten-3" href="https://www.facebook.com/anapao.lagunas/">Facebook Ana Lakes</a>
-              <img src="static/images/facebook.png" alt="" width="20px" height="20px"></li>
-        
-             </li>
-              <li><a class="text-white text-lighten-3" href="https://www.instagram.com/anapaolp">Instagram Ana Lakes</a>
-              <img src="static/images/instagram.png" alt="" width="20px" height="20px">
-              </li>
-              <li><a class="text-white text-lighten-3" href="https://www.facebook.com/octavio.martinez.9212301">Facebook Octavio Martinez</a>
-                <img src="static/images/facebook.png" alt="" width="20px" height="20px"></li>
-               </li>
-                <li><a class="text-white text-lighten-3" href="https://www.instagram.com/octaviiomtz">Instagram Octavio Martinez</a>
-                <img src="static/images/instagram.png" alt="" width="20px" height="20px">
-                </li>
-          </div>
-</footer>
+    <footer class="page-footer bg-dark">
+             <div class="footer-copyright">
+               <div class="container">
+                   <h5 class="text-white">Ana Paola Lakes Parra y Octavio Martínez Osorio</h5>
+                   <h6 class="text-white">© 2020 Copyright Text</h6>
+               </div>
+             </div>
+             <div class="col l4 offset-l2 s12">
+              <h5 class="text-white">Links para nuestras redes sociales</h5>
+              <div class="col-12">
+                  <li><a class="text-white text-lighten-3" href="https://www.facebook.com/anapao.lagunas/">Facebook Ana Lakes</a>
+                  <img src="static/images/facebook.png" alt="" width="20px" height="20px"></li>
 
+                 </li>
+                  <li><a class="text-white text-lighten-3" href="https://www.instagram.com/anapaolp">Instagram Ana Lakes</a>
+                  <img src="static/images/instagram.png" alt="" width="20px" height="20px">
+                  </li>
+                  <li><a class="text-white text-lighten-3" href="https://www.facebook.com/octavio.martinez.9212301">Facebook Octavio Martinez</a>
+                    <img src="static/images/facebook.png" alt="" width="20px" height="20px"></li>
+                   </li>
+                    <li><a class="text-white text-lighten-3" href="https://www.instagram.com/octaviiomtz">Instagram Octavio Martinez</a>
+                    <img src="static/images/instagram.png" alt="" width="20px" height="20px">
+                    </li>
+              </div>
+         </div>
+    </footer>
 
 <script src="static/js/bootstrap.min.js"></script>
+<script >
+  document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.tast .delete') || []).forEach(($delete) => {
+    $toast = $delete.parentNode;
+
+    $delete.addEventListener('click', () => {
+      $toast.parentNode.removeChild($toast);
+    });
+  });
+});
+</script>
 {#<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>#}
 {#<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>#}
 {#<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>#}

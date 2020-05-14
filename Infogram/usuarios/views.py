@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import login, authenticate, logout
 from .forms import RegisterForm, LoginForm
-
 from django.contrib import messages
+
 
 class LoginView(View):
     template_name = 'login.html'
@@ -22,11 +22,11 @@ class LoginView(View):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('index')
-                messages.error(request, 'Los datos ingresados no son los correctos')
-        return render(request, self.template_name, dict(form=form))
+            login(request, user)
+            messages.success(request, 'Autenticación exitosa')
+            return redirect('index')
+        messages.error(request, 'Los datos ingresados no son los correctos')
+        return redirect('login')
 
 
 class RegisterView(View):
